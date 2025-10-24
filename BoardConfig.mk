@@ -110,4 +110,7 @@ TWHAVE_SELINUX := true
 TW_BRIGHTNESS_PATH := "/sys/devices/platform/samsung_mobile_device/samsung_mobile_device:dc_vibrator/leds/vibrator/brightness"
 TW_CUSTOM_BATTERY_PATH := "/sys/devices/platform/samsung_mobile_device/samsung_mobile_device:battery/power_supply/battery"
 TW_MAX_BRIGHTNESS := 255
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+TW_SCREEN_BLANK_ON_BOOT := true
 TW_EXCLUDE_SUPERSU := false
