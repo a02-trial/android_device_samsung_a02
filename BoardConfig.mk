@@ -69,7 +69,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 BOARD_SUPER_PARTITION_SIZE := 9126805504 # TODO: Fix hardcoded value
 BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
-BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor product odm
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := vendor odm system product
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 
 # Platform
@@ -78,18 +78,7 @@ TARGET_BOARD_PLATFORM := mt6739
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
-
-# Security patch level
-VENDOR_SECURITY_PATCH := 2021-08-01
-
-# Verified Boot
-BOARD_AVB_ENABLE := true
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
-BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
-BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
+TARGET_USERIMAGES_USE_F2FS := false
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
@@ -101,17 +90,15 @@ TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := false
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
-RECOVERY_SDCARD_ON_DATA := false
+RECOVERY_SDCARD_ON_DATA := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_DISABLE_TTF := true
 TW_DEVICE_VERSION := a02_trial
 
 # TWRP trial Configuration
 TWHAVE_SELINUX := true
-TW_BRIGHTNESS_PATH := "/sys/devices/platform/samsung_mobile_device/samsung_mobile_device:dc_vibrator/leds/vibrator/brightness"
-TW_CUSTOM_BATTERY_PATH := "/sys/devices/platform/samsung_mobile_device/samsung_mobile_device:battery/power_supply/battery"
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
 TW_MAX_BRIGHTNESS := 255
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_EXCLUDE_SUPERSU := false
+TW_EXCLUDE_SUPERSU := true
