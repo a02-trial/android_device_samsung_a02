@@ -8,4 +8,4 @@
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/pb_a02.mk
 
-COMMON_LUNCH_CHOICES := pb_a02-eng
+COMMON_LUNCH_CHOICES := pb_a02-user
