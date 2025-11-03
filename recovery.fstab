@@ -1,7 +1,7 @@
-/system             ext4      system                                                    flags=display=system;logical
-/vendor             ext4      vendor                                                    flags=display=vendor;logical
-/product            ext4      product                                                   flags=display=product;logical
-/odm                ext4      odm                                                       flags=display=odm;logical
+/system_root        ext4      /dev/block/mapper/system                                  flags=display="System Image";wipeingui;backup=1;flashimg;
+/vendor             ext4      /dev/block/mapper/vendor                                  flags=display="Vendor Image";wipeingui;backup=1;flashimg;
+/product            ext4      /dev/block/mapper/product                                 flags=display="Product Image";;wipeingui;backup=1;flashimg;
+/odm                ext4      /dev/block/mapper/odm                                     flags=display="ODM Image";wipeingui;backup=1;flashimg;
 /boot               emmc      /dev/block/platform/bootdevice/by-name/boot               flags=display=boot
 /recovery           emmc      /dev/block/platform/bootdevice/by-name/recovery           flags=display=recovery
 /data               f2fs      /dev/block/platform/bootdevice/by-name/userdata           flags=display=data
@@ -11,7 +11,6 @@
 /preload            ext4      /dev/block/platform/bootdevice/by-name/hidden             flags=display=preload
 /misc               emmc      /dev/block/platform/bootdevice/by-name/misc               flags=display=misc
 /metadata           ext4      /dev/block/platform/bootdevice/by-name/md_udc             flags=display=metadata
-/sdcard             sdfat     /dev/block/mmcblk1p1                                      flags=display=sdcard
 /modem              emmc      /dev/block/platform/bootdevice/by-name/apnhlos            flags=display=modem
 /mdm                emmc      /dev/block/platform/bootdevice/by-name/modem              flags=display=mdm
 /dsp                emmc      /dev/block/platform/bootdevice/by-name/dsp                flags=display=dsp
@@ -26,8 +25,10 @@
 /optics             ext4      /dev/block/platform/bootdevice/by-name/optics             flags=display=optics
 /prism              ext4      /dev/block/platform/bootdevice/by-name/prism              flags=display=prism
 /vbmeta_samsung     emmc      /dev/block/platform/bootdevice/by-name/vbmeta_samsung     flags=display=vbmeta_samsung
-/vbmeta_system      emmc      /dev/block/platform/bootdevice/by-name/vbmeta_system      flags=display=vbmeta_system
+/vbmeta             emmc      /dev/block/platform/bootdevice/by-name/vbmeta             flags=display=vbmeta
 /cam_vpu1           emmc      /dev/block/platform/bootdevice/by-name/cam_vpu1           flags=display=cam_vpu1
 /cam_vpu2           emmc      /dev/block/platform/bootdevice/by-name/cam_vpu2           flags=display=cam_vpu2
 /cam_vpu3           emmc      /dev/block/platform/bootdevice/by-name/cam_vpu3           flags=display=cam_vpu3
 /pi_img             emmc      /dev/block/platform/bootdevice/by-name/pi_img             flags=display=pi_img
+/external_sd        vfat      /dev/block/mmcblk0p1 /dev/block/mmcblk0                   flags=display="External SD Card";storage;wipeingui;removable;
+/usb-otg            vfat      /dev/block/sdf1 /dev/block/sdf                            flags=display="USB OTG";storage;wipeingui;removable;
