@@ -6,7 +6,7 @@
 #
 
 # Inherit some common Omni stuff.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit from a02 device
